@@ -1,15 +1,29 @@
-# Black Widow - Blackbox Data-driven Web Scanning
+# BlackWidow-Docker
 
-## Running Black Widow
+A Dockerized fork of [Black Widow](https://github.com/SecuringWeb/BlackWidow) — a blackbox data-driven web scanner. This version removes the need to install Chrome, ChromeDriver, or Python dependencies locally.
 
-1. Add chromedriver to your path
+## Requirements
 
-Example for current directory on linux:
+- [Docker](https://docs.docker.com/get-docker/)
 
-PATH=$PATH:.
+## Usage
 
-2. Run the scanner
+**1. Build the image**
+```bash
+docker build -t blackwidow .
+```
 
-python3 crawl.py --url http://example.com
+**2. Run the scanner**
+```bash
+docker run --rm blackwidow --url https://example.com
+```
 
+## Differences from the original
 
+- No need to install Python, Chrome, or ChromeDriver locally
+- Runs headless Chrome inside the container
+- Single command to scan after building the image
+
+## Original project
+
+[Black Widow](https://github.com/SecuringWeb/BlackWidow) by SecuringWeb
